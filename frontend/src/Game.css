@@ -1,0 +1,24 @@
+/* Game container */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Background SVG */
+  .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Bush container */
+  .bush-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 200px;
+  }
+  
+  /* Add other styles as needed */
+  

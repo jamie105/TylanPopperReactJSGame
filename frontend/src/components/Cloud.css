@@ -1,0 +1,13 @@
+.cloud {
+    animation: cloudAnimation 30s linear infinite;
+  }
+  
+  @keyframes cloudAnimation {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      transform: translateX(2200px);
+    }
+  }
+  

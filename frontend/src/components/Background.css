@@ -1,0 +1,24 @@
+.background-container {
+    /* Your existing styles for the background */
+    position: relative;
+  }
+  
+  .score-timer {
+    position: absolute;
+    top: 10px; /* Adjust this value to position it as desired from the top */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center it horizontally */
+    text-align: center;
+  }
+  
+  .score-text {
+    font-size: 24px; /* Adjust the font size as needed */
+    color: black; /* Adjust the color as needed */
+    font-weight: bold;
+  }
+  
+  .time-text {
+    font-size: 16px; /* Adjust the font size as needed */
+    color: black; /* Adjust the color as needed */
+  }
+  
