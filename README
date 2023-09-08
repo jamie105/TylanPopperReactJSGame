@@ -83,8 +83,8 @@ The project contains the following main files and components:
 - `Settings.js`: The settings menu for adjusting game options.
 - `Help.js`: Provides information on how to play the game and understand the overall score.
 - `DestroyBushMimic.js` and `CreateBushMimic.js`: Simulate bush destruction and creation animations.
-- `README.md`: This file, providing an overview of the game and project structure.
 
-The project is organized into frontend and backend directories, each containing their respective code and configuration files. The backend is responsible for serving the game, while the frontend handles the game's user interface and logic.
-
-Feel free to further customize and expand this README to suit your game and project specifics.
+## ToDo
+- `Sprites`: need to change out the brown dot and other aspects for proper sprites
+- `Better Menus`: need to code  proper good looking menu and gaveover screen
+- `More`: add more features...
