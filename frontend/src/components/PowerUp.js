@@ -4,9 +4,9 @@ import './PowerUp.css'; // Import your CSS file for styling
 const PowerUp = ({ setTimeReduction, timeReduction, doublePointsActive, setDoublePointsActive, timeReductionActive, setTimeReductionActive, speedBoostActive, setSpeedBoostActive}) => {
   // Define your powerup types and initialize their counts
   const [powerupTypes, setPowerupTypes] = useState([
-    { emoji: '🚀', name: 'Speed Boost', count: 3, description: 'Increase Tylan jump speed.' },
-    { emoji: '💎', name: 'Double Points', count: 5, description: 'Earn double points for each pop.' },
-    { emoji: '🕐', name: 'Time Reduction', count: 5, description: 'Remove time from the game.' },
+    { emoji: '🚀', name: 'Speed Boost', count: 0, description: 'Increase Tylan jump speed.' },
+    { emoji: '💎', name: 'Double Points', count: 0, description: 'Earn double points for each pop.' },
+    { emoji: '🕐', name: 'Time Reduction', count: 0, description: 'Remove time from the game.' },
     // Add more powerup types here with descriptions
   ]);
 
@@ -18,7 +18,7 @@ const PowerUp = ({ setTimeReduction, timeReduction, doublePointsActive, setDoubl
   useEffect(() => {
     const intervalId = setInterval(() => {
       giveRandomPowerup();
-    }, 5000);
+    }, 15000);
 
     return () => {
       clearInterval(intervalId);

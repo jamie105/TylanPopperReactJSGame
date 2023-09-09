@@ -91,6 +91,7 @@ The project contains the following main files and components:
 - [X] **Power-ups**: Add power-ups that spawn randomly and provide temporary benefits 
 like faster clicking, extra points, or slowing down the game's timer.
     - Added 3 (speed boost, time reduction, double points)
+    - add way to get them
 - [ ] **Obstacles**: Introduce obstacles like rocks or other objects that obstruct the player's view and require them to strategize when to pop Tylins.
 - [ ] **Combo System**: Implement a combo system where players earn bonus points for popping Tylins consecutively without missing.
 - [ ] **Leaderboards**: Add an online leaderboard system to allow players to compete with others and see how their scores rank globally.
