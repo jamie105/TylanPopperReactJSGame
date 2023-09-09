@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Timer = ({ setTime, time }) => {
+const Timer = ({ setTime, time, timeReduction }) => {
   useEffect(() => {
     // Logic to update the time every second
     const interval = setInterval(() => {

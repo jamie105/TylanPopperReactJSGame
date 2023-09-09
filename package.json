@@ -1,0 +1,23 @@
+{
+  "name": "tylanpopper",
+  "version": "1.0.0",
+  "description": "Welcome to Tylin Popper, a fun and challenging game where you pop all the Tylins! Test your skills and aim for the highest score!",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamie105/TylanPopperReactJSGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamie105/TylanPopperReactJSGame/issues"
+  },
+  "homepage": "https://github.com/jamie105/TylanPopperReactJSGame#readme",
+  "dependencies": {
+    "child_process": "^1.0.2"
+  }
+}

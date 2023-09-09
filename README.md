@@ -88,7 +88,9 @@ The project contains the following main files and components:
 ## ToDo
 - [ ] **Sprites**: Need to change out the brown dot and other aspects for proper sprites.
 - [ ] **Better Menus**: Need to code proper good-looking menus and game over screens.
-- [ ] **Power-ups**: Add power-ups that spawn randomly and provide temporary benefits like faster clicking, extra points, or slowing down the game's timer.
+- [ ] **Power-ups**: Add power-ups that spawn randomly and provide temporary benefits 
+like faster clicking, extra points, or slowing down the game's timer.
+    - added 3, currently only 1 is coded
 - [ ] **Obstacles**: Introduce obstacles like rocks or other objects that obstruct the player's view and require them to strategize when to pop Tylins.
 - [ ] **Combo System**: Implement a combo system where players earn bonus points for popping Tylins consecutively without missing.
 - [ ] **Leaderboards**: Add an online leaderboard system to allow players to compete with others and see how their scores rank globally.

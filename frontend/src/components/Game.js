@@ -8,6 +8,7 @@ import Timer from './Timer';
 import GameOver from './GameOver';
 import Settings from './Settings'; // Import the Settings component
 import Help from './Help'; // Import the Help component
+import PowerUp from './PowerUp'; // Import the PowerUp component
 
 const Game = () => {
   const [score, setScore] = useState(0);
@@ -21,6 +22,7 @@ const Game = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [showHelp, setShowHelp] = useState(false); // State for showing/hiding Help popup
   const [regeneratingBushes, setRegeneratingBushes] = useState(false); // Initialize regeneratingBushes state
+  const [timeReduction, setTimeReduction] = useState(0);
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -43,8 +45,8 @@ const Game = () => {
     <div className="game-container">
       {gameStarted ? (
         <>
-          <Background score={score} time={time} penalty={penalty}/>
-          <Timer setTime={setTime}/>
+          <Background score={score} time={time} penalty={penalty} difficultyMultiplier={difficultyMultiplier} timeReduction={timeReduction}/>
+          <Timer setTime={setTime} timeReduction={timeReduction}/>
           <RunTime
             setScore={setScore}
             score={score}
@@ -54,6 +56,7 @@ const Game = () => {
             difficultyMultiplier={difficultyMultiplier}
             regeneratingBushes={regeneratingBushes} // Pass regeneratingBushes to RunTime
           />
+          <PowerUp setTimeReduction={setTimeReduction}/>
             {clouds.map((cloud, index) => (
             <Cloud key={index} {...cloud} />
           ))}
@@ -61,7 +64,7 @@ const Game = () => {
       ) : (
         <>
           {gameOver ? (
-            <GameOver score={score} time={time} penalty={penalty} initialBushes={initialBushes} difficultyMultiplier={difficultyMultiplier} regeneratingBushes={regeneratingBushes}/>
+            <GameOver score={score} time={time} penalty={penalty} initialBushes={initialBushes} difficultyMultiplier={difficultyMultiplier} regeneratingBushes={regeneratingBushes} timeReduction={timeReduction}/>
           ) : (
             <MainMenu
               onStartGame={handleStartGame}

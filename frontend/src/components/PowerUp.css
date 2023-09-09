@@ -1,0 +1,75 @@
+/* Style for the powerup panel container */
+.powerup-panel {
+    position: absolute;
+    top: 8px; /* Move down by 5px */
+    right: 8px; /* Move left by 5px */
+    background-color: grey; /* Grey background */
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index: 1; /* Ensure it appears above other elements */
+    border: 5px solid transparent; /* Transparent border for top and right */
+    border-bottom: 5px solid darkgrey;
+    border-left: 5px solid darkgrey;
+    border-radius: 0 0 0 10px; /* Rounded border on the left bottom side */
+  }
+  
+  /* Style for each individual powerup */
+  .powerup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px; /* Adjust spacing between powerups */
+  }
+  
+  /* Style for the powerup count */
+  .powerup-count {
+    font-size: 18px; /* Adjust the font size of the count */
+    color: white; /* Text color */
+    margin-top: 5px; /* Adjust vertical spacing between emoji and count */
+  }
+
+  /* PowerUp.css */
+  .powerup-button {
+    display: inline-block;
+    border: 3px solid #888; /* Add the border style */
+    border-radius: 4px; /* Add rounded corners */
+    padding: 4px; /* Add some padding for spacing */
+    margin: 5px; /* Add margin for spacing between buttons */
+    cursor: pointer; /* Add a pointer cursor on hover */
+  }
+  
+  .powerup-button:hover {
+    background-color: rgb(112, 112, 112, 1); /* Change background color on hover */
+    border: 3px solid darkgray;
+  }
+  
+  .emoji-icon {
+    width: 64px; /* Adjust the size of the emoji */
+    height: 64px;
+    /* Add any additional styles for the emoji */
+  }
+  /* Add this to your PowerUp.css or a new CSS file */
+  .powerup-overlay {
+    position: fixed;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* Set a high z-index to make it overlap everything */
+  }
+  
+  .powerup-overlay-icon {
+    width: 150%; /* Set the image size to 500% */
+    animation: rotate 1s linear; /* Add a rotation animation */
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  

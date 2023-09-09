@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Cloud from './Cloud';
 import './Background.css'; // Import your CSS file for styling
 
-const Background = ({score, time, penalty}) => {
+const Background = ({score, time, penalty, difficultyMultiplier, timeReduction}) => {
   const [clouds, setClouds] = useState([]);
 
   // Generate initial cloud positions
@@ -31,7 +31,7 @@ const Background = ({score, time, penalty}) => {
     {/* Add the score and timer elements */}
     <div className="score-timer">
         <div className="score-text">{score}</div>
-        <div className="time-text">{time + (penalty*5)} seconds</div>
+        <div className="time-text">{time - (timeReduction * (15/difficultyMultiplier)) + (penalty*5)} seconds</div>
       </div>
     </div>
   );
