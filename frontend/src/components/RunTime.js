@@ -4,7 +4,7 @@ import Bush from './Bush';
 import CreateBushMimic from './CreateBushMimic'; // Import CreateBushMimic
 import DestroyBushMimic from './DestroyBushMimic'; // Import DestroyBushMimic
 
-const RunTime = ({ setScore, score, onGameOver, setPenalty, initialBushes, difficultyMultiplier, regeneratingBushes}) => {
+const RunTime = ({ setScore, score, onGameOver, setPenalty, initialBushes, difficultyMultiplier, regeneratingBushes, doublePointsActive, speedBoostActive}) => {
   const bushSize = 80;
   const initialBushesSet = initialBushes;
 
@@ -57,13 +57,19 @@ const RunTime = ({ setScore, score, onGameOver, setPenalty, initialBushes, diffi
   }, []);
 
   useEffect(() => {
+    var timeout1InitialValue = 1250;
+    var timeout2InitialValue = 2000;
+    if(speedBoostActive){
+      timeout1InitialValue = 625;
+      timeout2InitialValue = 1000;
+    }
     const moleInterval = setInterval(() => {
       setMoleVisible(true);
 
       setTimeout(() => {
         setMoleVisible(false);
-      }, 1250 - (score * 25) * difficultyMultiplier);
-    }, 2000 - (score * 35) * difficultyMultiplier);
+      }, timeout1InitialValue - (score * 25) * difficultyMultiplier);
+    }, timeout2InitialValue - (score * 35) * difficultyMultiplier);
 
     return () => {
       clearInterval(moleInterval);
@@ -116,7 +122,9 @@ const RunTime = ({ setScore, score, onGameOver, setPenalty, initialBushes, diffi
   const handleMoleClick = (index) => {
     createNewBushes(index);
     if (moleVisible && index === moleIndex) {
-      setScore((prevScore) => prevScore + 1);
+        var addScoreAmount = 1;
+    if(doublePointsActive){ addScoreAmount = 2;}
+      setScore((prevScore) => prevScore + addScoreAmount);
       setMoleVisible(false);
     } else if (index !== moleIndex) {
       setPenalty((prevPenalty) => prevPenalty + 1);

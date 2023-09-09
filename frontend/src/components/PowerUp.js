@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import './PowerUp.css'; // Import your CSS file for styling
 
-const PowerUp = ({ setTimeReduction }) => {
+const PowerUp = ({ setTimeReduction, timeReduction, doublePointsActive, setDoublePointsActive, timeReductionActive, setTimeReductionActive, speedBoostActive, setSpeedBoostActive}) => {
   // Define your powerup types and initialize their counts
   const [powerupTypes, setPowerupTypes] = useState([
-    { emoji: '🚀', name: 'Speed Boost', count: 3, description: 'Increase clicking speed.' },
+    { emoji: '🚀', name: 'Speed Boost', count: 3, description: 'Increase Tylan jump speed.' },
     { emoji: '💎', name: 'Double Points', count: 5, description: 'Earn double points for each pop.' },
     { emoji: '🕐', name: 'Time Reduction', count: 5, description: 'Remove time from the game.' },
     // Add more powerup types here with descriptions
   ]);
+
+  const [doublePointsTime, setDoublePointsTime] = useState(0);
+  const [timeReductionTime, setTimeReductionTime] = useState(0);
+  const [speedBoostTime, setSpeedBoostTime] = useState(0);
+
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -20,8 +25,96 @@ const PowerUp = ({ setTimeReduction }) => {
     };
   }, []);
 
+  useEffect(() => {
+    let countdownIntervalDP;
+    if (doublePointsActive) {
+      countdownIntervalDP = setInterval(() => {
+        setDoublePointsTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(countdownIntervalDP);
+    };
+  }, [doublePointsActive]);
+
+  useEffect(() => {
+    let countdownIntervalTD;
+    if (timeReductionActive) {
+      countdownIntervalTD = setInterval(() => {
+        setTimeReductionTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(countdownIntervalTD);
+    };
+  }, [timeReductionActive]);
+
+  useEffect(() => {
+    let countdownIntervalSB;
+    if (speedBoostActive) {
+      countdownIntervalSB = setInterval(() => {
+        setSpeedBoostTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(countdownIntervalSB);
+    };
+  }, [speedBoostActive]);
+
+  const toggleDoublePoints = () => {
+    setDoublePointsActive(!doublePointsActive);
+
+    // If activating double points, set the duration (15 seconds)
+    if (!doublePointsActive) {
+      setDoublePointsTime(15);
+      // Deactivate double points after 15 seconds
+      setTimeout(() => {
+        setDoublePointsActive(false);
+        setDoublePointsTime(0);
+      }, 15000);
+    }
+  };
+
+  const toggleTimeReduction = () => {
+    setTimeReductionActive(!timeReductionActive);
+
+    // If activating double points, set the duration (15 seconds)
+    if (!timeReductionActive) {
+      setTimeReductionTime(15);
+      // Deactivate double points after 15 seconds
+      setTimeout(() => {
+        setTimeReductionActive(false);
+        setTimeReductionTime(0);
+      }, 15000);
+    }
+  };
+
+  const toggleSpeedBoost = () => {
+    setSpeedBoostActive(!speedBoostActive);
+
+    // If activating double points, set the duration (15 seconds)
+    if (!speedBoostActive) {
+      setSpeedBoostTime(15);
+      // Deactivate double points after 15 seconds
+      setTimeout(() => {
+        setSpeedBoostActive(false);
+        setSpeedBoostTime(0);
+      }, 15000);
+    }
+  };
+
   // Function to handle clicking on a powerup
   const handlePowerUpClick = (powerup, index) => {
+    if(powerup.name === 'Double Points' && doublePointsActive) {
+        return;
+    }else if(powerup.name === 'Time Reduction' && timeReductionActive) {
+        return;
+    }else if(powerup.name === 'Speed Boost' && speedBoostActive) {
+        return;
+    }
     if (powerup.count > 0) {
       // Create a copy of the powerup array
       const updatedPowerups = [...powerupTypes];
@@ -41,18 +134,29 @@ const PowerUp = ({ setTimeReduction }) => {
       // Execute powerup-specific code
       switch (powerup.name) {
         case 'Speed Boost':
-          // Implement Speed Boost logic
-          console.log('Speed Boost activated!');
+          if (!speedBoostActive) {
+            toggleSpeedBoost();
+            //apply boost
+          }else{
+            givePowerUp(powerup.name);
+          }
           break;
         case 'Double Points':
-          // Implement Double Points logic
-          console.log('Double Points activated!');
+          if (!doublePointsActive) {
+            toggleDoublePoints();
+            //apply points
+          }else{
+            givePowerUp(powerup.name);
+          }
           break;
         case 'Time Reduction':
-          // Implement Time Extension logic
-          setTimeReduction((prevTimeReduction) => prevTimeReduction + 1);
+          if (!timeReductionActive) {
+            toggleTimeReduction();
+            setTimeReduction((prevTimeReduction) => prevTimeReduction + 1);
+          }else{
+            givePowerUp(powerup.name);
+          }
           break;
-        // Add more cases for other powerups
         default:
           break;
       }
@@ -88,6 +192,21 @@ const PowerUp = ({ setTimeReduction }) => {
         >
           <img src={`art/powerups/powerup${index}.png`} alt={powerup.emoji} className="emoji-icon" />
           <span className="powerup-count">{powerup.count}</span>
+          {doublePointsActive && powerup.name === 'Double Points' && (
+          <div className="double-points-timer">
+            <span className="timer-text">{doublePointsTime}s</span>
+          </div>
+        )}
+        {timeReductionActive && powerup.name === 'Time Reduction' && (
+          <div className="time-reduction-timer">
+        <span className="timer-text">{timeReductionTime}s</span>
+          </div>
+        )}
+        {speedBoostActive && powerup.name === 'Speed Boost' && (
+          <div className="speed-boost-timer">
+        <span className="timer-text">{speedBoostTime}s</span>
+          </div>
+        )}
         </div>
       ))}
       {/* Add more powerups with their respective descriptions */}

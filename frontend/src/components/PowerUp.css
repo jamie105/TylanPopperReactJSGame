@@ -72,4 +72,44 @@
       transform: translate(-50%, -50%) rotate(360deg);
     }
   }
+
+  .double-points-timer {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    border-radius: 50%; /* Create a circular shape */
+    padding: 10px 15px; /* Add padding to give it some space */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .time-reduction-timer {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 81%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    border-radius: 50%; /* Create a circular shape */
+    padding: 10px 15px; /* Add padding to give it some space */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .speed-boost-timer {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 19%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white; /* Text color */
+    border-radius: 50%; /* Create a circular shape */
+    padding: 10px 15px; /* Add padding to give it some space */
+    font-size: 14px; /* Adjust font size */
+  }
+  
+  .timer-text {
+    display: inline-block;
+  }
   

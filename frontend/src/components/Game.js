@@ -23,6 +23,9 @@ const Game = () => {
   const [showHelp, setShowHelp] = useState(false); // State for showing/hiding Help popup
   const [regeneratingBushes, setRegeneratingBushes] = useState(false); // Initialize regeneratingBushes state
   const [timeReduction, setTimeReduction] = useState(0);
+  const [doublePointsActive, setDoublePointsActive] = useState(false);
+  const [timeReductionActive, setTimeReductionActive] = useState(false);
+  const [speedBoostActive, setSpeedBoostActive] = useState(false);
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -55,8 +58,19 @@ const Game = () => {
             initialBushes={initialBushes}
             difficultyMultiplier={difficultyMultiplier}
             regeneratingBushes={regeneratingBushes} // Pass regeneratingBushes to RunTime
+            doublePointsActive={doublePointsActive}
+            speedBoostActive={speedBoostActive}
           />
-          <PowerUp setTimeReduction={setTimeReduction}/>
+          <PowerUp 
+          setTimeReduction={setTimeReduction}
+          timeReduction={timeReduction}
+          doublePointsActive={doublePointsActive}
+          setDoublePointsActive={setDoublePointsActive}
+          timeReductionActive={timeReductionActive}
+          setTimeReductionActive={setTimeReductionActive}
+          speedBoostActive={speedBoostActive}
+          setSpeedBoostActive={setSpeedBoostActive}
+          />
             {clouds.map((cloud, index) => (
             <Cloud key={index} {...cloud} />
           ))}
