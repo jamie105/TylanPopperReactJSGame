@@ -1,5 +1,6 @@
 // components/Cloud.js
 
+import '../css/Cloud.css';
 import React, { useState, useEffect } from 'react';
 
 const Cloud = ({ initialX, y, speed }) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cloud from './Cloud';
-import './Background.css'; // Import your CSS file for styling
+import '../css/Background.css'; // Import your CSS file for styling
 
 const Background = ({score, time, penalty, difficultyMultiplier, timeReduction}) => {
   const [clouds, setClouds] = useState([]);

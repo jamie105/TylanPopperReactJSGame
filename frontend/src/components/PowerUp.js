@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './PowerUp.css'; // Import your CSS file for styling
+import '../css/PowerUp.css'; // Import your CSS file for styling
 
 const PowerUp = ({ setTimeReduction, timeReduction, doublePointsActive, setDoublePointsActive, timeReductionActive, setTimeReductionActive, speedBoostActive, setSpeedBoostActive}) => {
   // Define your powerup types and initialize their counts

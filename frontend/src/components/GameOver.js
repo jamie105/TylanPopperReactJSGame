@@ -1,6 +1,6 @@
 import React from 'react';
 import MathJax from 'react-mathjax';
-import './GameOver.css'; // Import your CSS file for styling
+import '../css/GameOver.css'; // Import your CSS file for styling
 
 const GameOver = ({ score, time, penalty, initialBushes, difficultyMultiplier, regeneratingBushes, timeReduction }) => {
   const penaltyMultiplier = 1;
